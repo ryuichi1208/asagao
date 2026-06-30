@@ -1,0 +1,11 @@
+{
+  "id": "1234567890",
+  "alert_id": "987654",
+  "title": "[Triggered] High error rate on api",
+  "body": "The error rate for service:api exceeded 5% over the last 5 minutes.",
+  "priority": "P1",
+  "alert_type": "error",
+  "alert_transition": "Triggered",
+  "tags": "env:prod,service:api,host:web-01",
+  "org": { "name": "acme" }
+}

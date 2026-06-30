@@ -1,0 +1,21 @@
+{
+  "status": "firing",
+  "title": "[FIRING:1] HighLatency",
+  "message": "1 alert is firing",
+  "commonLabels": { "env": "prod" },
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "HighLatency",
+        "service": "checkout",
+        "severity": "critical"
+      },
+      "annotations": {
+        "summary": "Checkout p99 latency is high",
+        "description": "p99 latency for checkout exceeded 2s for 5 minutes."
+      },
+      "fingerprint": "abc123def456"
+    }
+  ]
+}
