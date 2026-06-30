@@ -1,0 +1,36 @@
+# asagao 設定ファイルのサンプル。`config.yaml` にコピーして編集する。
+#
+# シークレット（API キー・トークン）は環境変数で渡す。YAML には書かない:
+#   ANTHROPIC_API_KEY  ... Anthropic API キー（SDK が自動で読む）
+#   GITHUB_TOKEN       ... 対象リポジトリを clone/push するための GitHub PAT
+
+anthropic:
+  # 使用する Claude モデル。省略時は claude-opus-4-8。
+  model: claude-opus-4-8
+
+  # 以下 3 つは初回起動時に asagao が自動作成し、ログに出力する。
+  # 再利用するにはログの値をここに書き戻す（毎回作り直すのはアンチパターン）。
+  agent_id: ""
+  agent_version: 0
+  environment_id: ""
+
+  # GitHub MCP サーバ用の OAuth 資格情報を保持する vault の ID。
+  # PR 作成に必須。`ant` CLI などで事前に作成しておく（README 参照）。
+  vault_ids:
+    - "vlt_xxxxxxxxxxxx"
+
+# サービス名 → 対象リポジトリのマッピング。
+# アラートの service タグ等から解決する。"default" は未マッチ時のフォールバック。
+repos:
+  api:
+    url: https://github.com/your-org/api
+    branch: main
+  checkout:
+    url: https://github.com/your-org/checkout
+    branch: main
+  default:
+    url: https://github.com/your-org/monorepo
+    branch: main
+
+server:
+  addr: ":8080"
